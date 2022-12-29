@@ -1,4 +1,3 @@
-import pytest
 import string
 from new_pass.generator import PasswordGenerator
 
@@ -30,7 +29,7 @@ def test_generate_special_chars():
     assert len(password) == 16
     
     # Test that the generated password contains ASCII letters, digits, and special characters
-    assert all(c in string.ascii_letters + string.digits + string.punctuation for c in password)
+    assert any(c in string.punctuation for c in password)
 
 def test_generate_length_special_chars():
     generator = PasswordGenerator(length=32, special_chars=True)
@@ -40,4 +39,4 @@ def test_generate_length_special_chars():
     assert len(password) == 32
     
     # Test that the generated password contains ASCII letters, digits, and special characters
-    assert all(c in string.ascii_letters + string.digits + string.punctuation for c in password)
+    assert any(c in string.punctuation for c in password)
