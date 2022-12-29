@@ -8,7 +8,7 @@ class PasswordGenerator:
         self.length = length
         self.special_chars = special_chars
 
-    def generate(self):
+    def generate(self) -> str:
         """Generate a password."""
         # Determine the character set to use
         if self.special_chars:
@@ -21,7 +21,7 @@ class PasswordGenerator:
         return password
 
 
-def main():
+def main() -> None:
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Generate a password.")
     parser.add_argument(
